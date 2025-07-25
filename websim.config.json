@@ -1,0 +1,48 @@
+{
+  "database": {
+    "schema": {
+      "questions": {
+        "id": {
+          "type": "uuid",
+          "description": "Unique question identifier"
+        },
+        "content": {
+          "type": "text",
+          "description": "The question content"
+        },
+        "answer": {
+          "type": "text",
+          "description": "The answer from the creator (nullable)"
+        },
+        "user_id": {
+          "type": "uuid",
+          "description": "ID of user who asked the question"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "description": "When the question was created"
+        }
+      },
+      "votes": {
+        "id": {
+          "type": "text",
+          "description": "Composite key: user_id-question_id for uniqueness"
+        },
+        "question_id": {
+          "type": "uuid",
+          "description": "ID of the question being voted on"
+        },
+        "user_id": {
+          "type": "uuid",
+          "description": "ID of the user voting"
+        },
+        "vote_type": {
+          "type": "text",
+          "description": "Either 'up' or 'down'"
+        }
+      }
+    },
+    "instructions": "This AMA system stores questions and votes. Questions can be answered only by the page creator. Users can vote once per question with either 'up' or 'down'. The vote ID is a composite of user_id and question_id to ensure uniqueness."
+  }
+}
+
